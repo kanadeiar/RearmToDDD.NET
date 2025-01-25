@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RearmCSharp1L1T1.Questionnaire.DataAccessLayer\RearmCSharp1L1T1.Questionnaire.DataAccessLayer.csproj" />
+  </ItemGroup>
+
+</Project>
