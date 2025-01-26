@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSharpLevel1", "CSharpLevel1", "{F28C09F6-7E98-4D76-91E1-E009267244C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson1", "Lesson1", "{64DB5B70-4F65-4CDE-A74D-B596E0BC0A0E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1", "Task1", "{6B1E6099-CD45-4B9C-A6D2-79CB3E9E280B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9DFF38D0-5203-4D97-87A3-0DDFFA14A9C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{235A6A61-AF02-414F-865E-6FEE2A3BAAE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RearmCSharp1L1T1.Questionnaire.Tests.EndToEnd", "CSharpLevel1\Lesson1\Task1\tests\RearmCSharp1L1T1.Questionnaire.Tests.EndToEnd\RearmCSharp1L1T1.Questionnaire.Tests.EndToEnd.csproj", "{8AB60921-C4AE-4511-BE97-A5A12BFA0741}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RearmCSharp1L1T1", "CSharpLevel1\Lesson1\Task1\src\RearmCSharp1L1T1\RearmCSharp1L1T1.csproj", "{64C02B99-2DF6-4E13-A40F-0E4695127E17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RearmCSharp1L1T1.Questionnaire.DataAccessLayer", "CSharpLevel1\Lesson1\Task1\src\RearmCSharp1L1T1.Questionnaire.DataAccessLayer\RearmCSharp1L1T1.Questionnaire.DataAccessLayer.csproj", "{814F3A00-7693-43C1-B8C9-C49947B2B24F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RearmCSharp1L1T1.Questionnaire.PresentationLayer", "CSharpLevel1\Lesson1\Task1\src\RearmCSharp1L1T1.Questionnaire.PresentationLayer\RearmCSharp1L1T1.Questionnaire.PresentationLayer.csproj", "{CED8CF66-2093-473F-A232-7B9B071B1B2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RearmCSharp1L1T1.Questionnaire.UsefulLogicLayer", "CSharpLevel1\Lesson1\Task1\src\RearmCSharp1L1T1.Questionnaire.UsefulLogicLayer\RearmCSharp1L1T1.Questionnaire.UsefulLogicLayer.csproj", "{08660C21-0526-473C-B50E-3E666D50782B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AB60921-C4AE-4511-BE97-A5A12BFA0741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB60921-C4AE-4511-BE97-A5A12BFA0741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB60921-C4AE-4511-BE97-A5A12BFA0741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB60921-C4AE-4511-BE97-A5A12BFA0741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C02B99-2DF6-4E13-A40F-0E4695127E17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C02B99-2DF6-4E13-A40F-0E4695127E17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C02B99-2DF6-4E13-A40F-0E4695127E17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C02B99-2DF6-4E13-A40F-0E4695127E17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{814F3A00-7693-43C1-B8C9-C49947B2B24F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{814F3A00-7693-43C1-B8C9-C49947B2B24F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{814F3A00-7693-43C1-B8C9-C49947B2B24F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{814F3A00-7693-43C1-B8C9-C49947B2B24F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CED8CF66-2093-473F-A232-7B9B071B1B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED8CF66-2093-473F-A232-7B9B071B1B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CED8CF66-2093-473F-A232-7B9B071B1B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED8CF66-2093-473F-A232-7B9B071B1B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08660C21-0526-473C-B50E-3E666D50782B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08660C21-0526-473C-B50E-3E666D50782B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08660C21-0526-473C-B50E-3E666D50782B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08660C21-0526-473C-B50E-3E666D50782B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{64DB5B70-4F65-4CDE-A74D-B596E0BC0A0E} = {F28C09F6-7E98-4D76-91E1-E009267244C1}
+		{6B1E6099-CD45-4B9C-A6D2-79CB3E9E280B} = {64DB5B70-4F65-4CDE-A74D-B596E0BC0A0E}
+		{9DFF38D0-5203-4D97-87A3-0DDFFA14A9C2} = {6B1E6099-CD45-4B9C-A6D2-79CB3E9E280B}
+		{235A6A61-AF02-414F-865E-6FEE2A3BAAE4} = {6B1E6099-CD45-4B9C-A6D2-79CB3E9E280B}
+		{8AB60921-C4AE-4511-BE97-A5A12BFA0741} = {235A6A61-AF02-414F-865E-6FEE2A3BAAE4}
+		{64C02B99-2DF6-4E13-A40F-0E4695127E17} = {9DFF38D0-5203-4D97-87A3-0DDFFA14A9C2}
+		{814F3A00-7693-43C1-B8C9-C49947B2B24F} = {9DFF38D0-5203-4D97-87A3-0DDFFA14A9C2}
+		{CED8CF66-2093-473F-A232-7B9B071B1B2C} = {9DFF38D0-5203-4D97-87A3-0DDFFA14A9C2}
+		{08660C21-0526-473C-B50E-3E666D50782B} = {9DFF38D0-5203-4D97-87A3-0DDFFA14A9C2}
+	EndGlobalSection
+EndGlobal
