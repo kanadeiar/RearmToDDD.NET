@@ -2,6 +2,7 @@
 using Kanadeiar.Common;
 using RearmCSharp1L1T1.Questionnaire.DataAccessLayer.Data;
 using RearmCSharp1L1T1.Questionnaire.UsefulLogicLayer.QuestionnaireModule;
+using RearmCSharp1L1T1.Questionnaire.UsefulLogicLayer.QuestionnaireModule.FormattingCodes;
 
 [assembly: InternalsVisibleTo("RearmCSharp1L1T1.Questionnaire.Tests.EndToEnd")]
 namespace RearmCSharp1L1T1.Questionnaire.PresentationLayer;
@@ -36,7 +37,8 @@ public class QuestionnaireService
 
             foreach (var each in variants.GetVariants())
             {
-                var text = questionnaire.GetFormattedText(each.Item2);
+                var code = FormatCode.Create(each.Item2);
+                var text = questionnaire.GetFormattedText(code);
 
                 ConsoleHelper.PrintValueWithMessage(each.Item1, text);
             }
