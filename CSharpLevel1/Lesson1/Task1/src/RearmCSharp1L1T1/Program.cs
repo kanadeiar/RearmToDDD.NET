@@ -4,8 +4,10 @@ ConsoleHelper.PrintHeader( "Задача № 1. Написать програм�
 
 var service = new QuestionnaireService();
 
-var questionnaire = service.InputFromConsole();
+var questionnaire = service.InputFromConsole()
+    .Throw(none => new ApplicationException(none.Message));
 
-service.PrintToConsole(questionnaire);
+service.PrintToConsole(questionnaire)
+    .Throw(none => new ApplicationException(none.Message));
 
 ConsoleHelper.PrintFooter();

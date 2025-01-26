@@ -49,11 +49,11 @@ public static class Option
         };
     }
 
-    public static T Throw<T>(this Some<T> option, Exception exception)
+    public static T Throw<T>(this Some<T> option, Func<INone, Exception> exceptionFunc)
     {
         return option switch
         {
-            INone _ => throw exception,
+            INone none => throw exceptionFunc(none),
             ISome<T> some => some.Value,
             _ => throw new ArgumentOutOfRangeException(nameof(option))
         };
