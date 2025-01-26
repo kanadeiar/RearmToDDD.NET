@@ -10,6 +10,11 @@ namespace RearmCSharp1L1T1.Questionnaire.Tests.EndToEnd;
 
 public class QuestionnaireServiceTests
 {
+    /// <summary>
+    /// Оптимистичный сценарий:
+    /// Успешный ввод данных из консоли.
+    /// Успешный вывод результатов в консоль.
+    /// </summary>
     [Theory]
     [AutoMoqData]
     public void TestInputFromConsole(Mock<IConsole> mock, string surName, string name, int age, int height, int weight)
@@ -19,6 +24,7 @@ public class QuestionnaireServiceTests
         ConsoleHelper.console = mock.Object;
         var sut = new QuestionnaireService();
 
+        //Успешный ввод данных из консоли.
         var actual = sut.InputFromConsole()
             .TryGetValue(x => throw new ApplicationException());
 
@@ -28,8 +34,23 @@ public class QuestionnaireServiceTests
         values.Item3.Should().Be(age);
         values.Item4.Should().Be(height);
         values.Item5.Should().Be(weight);
+
+        //Успешный вывод результатов в консоль.
+        var expecteds = actual.deconstruct();
+
+        var actual2 = sut.PrintToConsole(actual);
+
+        actual2.Should().BeOfType<Some>();
+        mock.Verify(x => x.WriteLine("Склеивание:"));
+        mock.Verify(x => x.WriteLine("Форматирование:"));
+        mock.Verify(x => x.WriteLine("Интерполяция:"));
+        mock.Verify(x => x.WriteLine($"{expecteds.Item1} {expecteds.Item2} {expecteds.Item3} лет {expecteds.Item4} см {expecteds.Item5} кг"));
     }
 
+    /// <summary>
+    /// Пессимистичный сценарий:
+    /// Неудачный ввод данных из консоли.
+    /// </summary>
     [Theory]
     [AutoMoqData]
     public void TestInputFromConsole_WhenError(Mock<IConsole> mock)
@@ -44,23 +65,10 @@ public class QuestionnaireServiceTests
         actual.Should().BeOfType<None<QuestionnaireBase>>();
     }
 
-    [Theory]
-    [AutoMoqData]
-    public void TestPrintToConsole(Mock<IConsole> mock, QuestionnaireBase questionnaire)
-    {
-        var expecteds = questionnaire.deconstruct();
-        ConsoleHelper.console = mock.Object;
-        var sut = new QuestionnaireService();
-
-        var actual = sut.PrintToConsole(questionnaire);
-        
-        actual.Should().BeOfType<Some>();
-        mock.Verify(x => x.WriteLine("Склеивание:"));
-        mock.Verify(x => x.WriteLine("Форматирование:"));
-        mock.Verify(x => x.WriteLine("Интерполяция:"));
-        mock.Verify(x => x.WriteLine($"{expecteds.Item1} {expecteds.Item2} {expecteds.Item3} лет {expecteds.Item4} см {expecteds.Item5} кг"));
-    }
-
+    /// <summary>
+    /// Пессимистичный сценарий:
+    /// Неудачный вывод данных в консоль.
+    /// </summary>
     [Theory]
     [AutoMoqData]
     public void TestPrintToConsole_WhenError(Mock<IConsole> mock, QuestionnaireBase questionnaire)
