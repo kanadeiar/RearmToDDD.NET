@@ -9,7 +9,7 @@ namespace RearmCSharp1L1T1.Questionnaire.PresentationLayer;
 
 public class QuestionnaireService
 {
-    public Some<QuestionnaireBase> InputFromConsole()
+    public Option<QuestionnaireBase> InputFromConsole()
     {
         try
         {
@@ -29,7 +29,7 @@ public class QuestionnaireService
         }
     }
 
-    public Some PrintToConsole(QuestionnaireBase questionnaire)
+    public Option PrintToConsole(QuestionnaireBase questionnaire)
     {
         try
         {

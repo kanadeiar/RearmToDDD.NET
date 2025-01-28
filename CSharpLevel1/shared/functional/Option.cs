@@ -10,36 +10,37 @@ public interface ISome<out T>
     public T Value { get; }
 }
 
-public class Some<T>(T value) : ISome<T>
+public class Option<T>(T value) : ISome<T>
 {
     T ISome<T>.Value => value;
 }
 
-public class None<T>(string message) : Some<T>(default!), INone
+public class None<T>(string message) : Option<T>(default!), INone
 {
     string INone.Message => message;
 }
 
-public class Some() : Some<bool>(false);
-
-public class None(string message) : Some, INone
+public class Option() : Option<bool>(false)
 {
-    string INone.Message => message;
-}
+    public static Option<T> Some<T>(T value) => new(value);
 
-public static class Option
-{
-    public static Some<T> Some<T>(T value) => new(value);
-
-    public static Some<T> None<T>(string message) => 
+    public static Option<T> None<T>(string message) =>
         new None<T>(message);
 
-    public static Some Some() => new();
+    public static Option Some() => new();
 
-    public static Some None(string message) =>
+    public static Option None(string message) =>
         new None(message);
+}
 
-    public static T TryGetValue<T>(this Some<T> option, Func<INone, T> noneFunc)
+public class None(string message) : Option, INone
+{
+    string INone.Message => message;
+}
+
+public static class OptionSupport
+{
+    public static T TryGetValue<T>(this Option<T> option, Func<INone, T> noneFunc)
     {
         return option switch
         {
@@ -49,11 +50,31 @@ public static class Option
         };
     }
 
-    public static T Throw<T>(this Some<T> option, Func<INone, Exception> exceptionFunc)
+    public static T TryGetValue<T>(this Option<T> option, Func<T> noneFunc)
+    {
+        return option switch
+        {
+            INone _ => noneFunc(),
+            ISome<T> some => some.Value,
+            _ => throw new ArgumentOutOfRangeException(nameof(option))
+        };
+    }
+
+    public static T Throw<T>(this Option<T> option, Func<INone, Exception> exceptionFunc)
     {
         return option switch
         {
             INone none => throw exceptionFunc(none),
+            ISome<T> some => some.Value,
+            _ => throw new ArgumentOutOfRangeException(nameof(option))
+        };
+    }
+
+    public static T Throw<T>(this Option<T> option, Func<Exception> exceptionFunc)
+    {
+        return option switch
+        {
+            INone _ => throw exceptionFunc(),
             ISome<T> some => some.Value,
             _ => throw new ArgumentOutOfRangeException(nameof(option))
         };

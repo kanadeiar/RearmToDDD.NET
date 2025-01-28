@@ -4,7 +4,7 @@ namespace RefactoringLab.Common;
 
 public abstract record ExampleCode
 {
-    public Some<int> CreateWithOption(ExampleCode code)
+    public Option<int> CreateWithOption(ExampleCode code)
     {
         return code.Require(code != null) switch
         {
@@ -25,7 +25,7 @@ public abstract record ExampleCode
         };
     }
 
-    public Some ExampleAction(bool value)
+    public Option ExampleAction(bool value)
     {
         return value 
             ? Option.Some() 
