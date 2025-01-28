@@ -40,7 +40,7 @@ public class QuestionnaireServiceTests
 
         var actual2 = sut.PrintToConsole(actual);
 
-        actual2.Should().BeOfType<Some>();
+        actual2.Should().BeOfType<Option>();
         mock.Verify(x => x.WriteLine("Склеивание:"));
         mock.Verify(x => x.WriteLine("Форматирование:"));
         mock.Verify(x => x.WriteLine("Интерполяция:"));
